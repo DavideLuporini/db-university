@@ -2,3 +2,30 @@
 SELECT * FROM `students`
 WHERE YEAR(`date_of_birth`) = 1990  
 ORDER BY `students`.`date_of_birth`  DESC
+
+
+-- Selezionare tutti i corsi che valgono più di 10 crediti
+
+SELECT * FROM `courses`
+WHERE `cfu` >= 10  
+ORDER BY `courses`.`cfu`  DESC
+
+-- Selezionare tutti gli studenti che hanno più di 30 anni
+
+SELECT * FROM `students` 
+
+WHERE YEAR(`date_of_birth`) =  1992 
+ORDER BY `students`.`date_of_birth`  DESC
+
+-- Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea
+
+SELECT * FROM `courses` 
+WHERE `period` = "I semestre"  
+ORDER BY `courses`.`period`  DESC
+
+-- Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020
+SELECT * FROM `exams`
+
+WHERE `hour` >= "14:00"   AND `date`  = "2020/06/20"
+ORDER BY `exams`.`date` DESC
+
