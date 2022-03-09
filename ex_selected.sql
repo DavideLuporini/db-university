@@ -36,3 +36,29 @@ WHERE `name` LIKE '%magistrale%';
 -- Da quanti dipartimenti è composta l'università?
 SELECT COUNT(*) AS 'number of departments' FROM `departments` LIMIT 25
 
+-- Quanti sono gli insegnanti che non hanno un numero di telefono?
+SELECT COUNT(*) 
+FROM `teachers`
+WHERE `phone` IS NULL
+
+
+
+
+-- GROUP BY EXS
+
+
+-- 1# Contare quanti iscritti ci sono stati ogni anno
+
+
+SELECT COUNT(*) AS 'num_iscritti', YEAR(`enrolment_date`) AS `anno_iscrizione`
+FROM `students`
+GROUP BY `anno_iscrizione`
+
+-- 2# Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+
+SELECT COUNT(*) AS 'teachers', `office_address` AS `address`
+FROM `teachers`
+GROUP BY `address`
+
+
+
