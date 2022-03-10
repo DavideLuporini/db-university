@@ -66,6 +66,15 @@ SELECT COUNT(*) AS `exam_student`, AVG(`vote`) AS `vote`
 FROM `exam_student`
 GROUP BY `vote`
 
+--#QUERI CON JOIN 
+-- 1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
+
+SELECT D.`name`, S.`name`, S.`surname`, S.`registration_number` AS 'number'
+FROM `degrees` D
+JOIN `students` S
+ON D.`id` = S.`degree_id`
+WHERE D.`name` = 'Corso di Laurea in Economia'
+
 
 
 
