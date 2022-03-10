@@ -75,6 +75,15 @@ JOIN `students` S
 ON D.`id` = S.`degree_id`
 WHERE D.`name` = 'Corso di Laurea in Economia'
 
+-- 2 Selezionare tutti i Corsi di Laurea del Dipartimento di Neuroscienze
+
+SELECT DE.`name`, DG.`name`
+FROM `departments` DE
+JOIN `degrees` DG
+ON DE.`id` = DG.`department_id`
+WHERE DE.`name` = 'Dipartimento di Neuroscienze'
+ORDER BY DG.`name` ASC
+
 
 
 
