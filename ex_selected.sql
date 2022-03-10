@@ -130,5 +130,15 @@ SELECT DISTINCT `teachers`.`name`, `teachers`.`surname` , `departments` . `name`
     ON `degrees`.`department_id`=`departments`.`id`
     WHERE `departments`.`name`='Dipartimento di Matematica'
 
+    -- 7 BONUS: Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
+SELECT S.`name`, S.`surname`, IF(COUNT(C.`name`)>1, 'more then one attemp', 'first attempt') AS 'how many attemps', C.`name` AS 'Course name', COUNT(C.`name`) AS 'Attemps'
+FROM `students` S
+JOIN `exam_student` ES
+ON S.`id` = ES.`student_id`
+JOIN `exams` E
+ON E.`id` = ES.`exam_id`
+JOIN `courses` C
+ON C.`id` = E.`course_id`
+GROUP BY S.`name`, S.`surname`, C.`name`
 
 
